@@ -23,7 +23,7 @@
     "@types/linkify-it": "3.0.2",
     "@vueuse/core": "9.1.1",
     "array-move": "4.0.0",
-    "firebase": "9.19.1",
+    "firebase": "10.12.2",
     "google-auth-library": "8.7.0",
     "googleapis": "117.0.0",
     "jspdf": "2.5.1",
