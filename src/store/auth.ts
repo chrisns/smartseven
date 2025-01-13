@@ -7,6 +7,8 @@ import {
   browserLocalPersistence,
   User,
   getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
   signInWithRedirect,
   getRedirectResult,
   connectAuthEmulator,
@@ -66,10 +68,10 @@ export const useAuthStore = defineStore("auth", function () {
     await auth.setPersistence(browserLocalPersistence)
 
     if (auth.currentUser) return saveUserToStore(auth.currentUser, providedBy)
-
-    const userCredential = await getRedirectResult(auth)
+    
+    const userCredential = await signInWithPopup(auth, provider);
     console.log(userCredential)
-    if (userCredential === null) return signInWithRedirect(auth, provider)
+    if (userCredential === null) return signInWithPopup(auth, provider)
     console.log("providedBy", providedBy)
     saveUserToStore(userCredential.user, providedBy)
   }
