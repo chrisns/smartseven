@@ -8,9 +8,7 @@ import {
   User,
   getAuth,
   signInWithPopup,
-  GoogleAuthProvider,
   signInWithRedirect,
-  getRedirectResult,
   connectAuthEmulator,
 } from "firebase/auth"
 
@@ -68,10 +66,17 @@ export const useAuthStore = defineStore("auth", function () {
     await auth.setPersistence(browserLocalPersistence)
 
     if (auth.currentUser) return saveUserToStore(auth.currentUser, providedBy)
-    
-    const userCredential = await signInWithPopup(auth, provider);
-    console.log(userCredential)
-    if (userCredential === null) return signInWithPopup(auth, provider)
+
+    let signin
+    if (window.location.hostname === "localhost") {
+      signin = signInWithRedirect
+    } else {
+      signin = signInWithPopup
+    }
+
+    const userCredential = await signin(auth, provider)
+
+    if (userCredential === null) return signin(auth, provider)
     console.log("providedBy", providedBy)
     saveUserToStore(userCredential.user, providedBy)
   }
