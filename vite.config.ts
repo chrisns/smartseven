@@ -20,7 +20,7 @@ export default defineConfig({
   base: "/",
   plugins: [vue(), VitePWA(pwaOptions)],
   define: {
-    "process.env": {}
+    "process.env": {},
   },
   build: {
     minify: "esbuild",

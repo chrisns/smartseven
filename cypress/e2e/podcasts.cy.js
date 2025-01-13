@@ -10,7 +10,9 @@ const switchPodCast = (podcast) => {
 const dragDraftToScript = () => {
   cy.get("#script-column").should("not.have.class", "col-span-3")
   cy.get("button[title='toggle script expansion'").click()
-  cy.get("section[slotno=6] textarea").type("new share item{enter}", { force: true, })
+  cy.get("section[slotno=6] textarea").type("new share item{enter}", {
+    force: true,
+  })
   cy.get("section[slotno=6]").should("contain", "new share item")
   cy.get("#script-data div label").then((el) => {
     cy.get("section[slotno=6] ul div").eq(0).trigger(
@@ -268,9 +270,13 @@ describe("newsdesk logged in", () => {
     cy.get("#script-column").should("not.have.class", "col-span-3")
     cy.get("button[title='toggle script expansion'").click()
     cy.get("#script-column").should("have.class", "col-span-3")
-    cy.get("section[slotno=7] textarea").type("new share item{enter}", { force: true, })
+    cy.get("section[slotno=7] textarea").type("new share item{enter}", {
+      force: true,
+    })
     cy.get("section[slotno=7]").should("contain", "new share item")
-    cy.get("section[slotno=6] textarea").type("new share item{enter}", { force: true, })
+    cy.get("section[slotno=6] textarea").type("new share item{enter}", {
+      force: true,
+    })
     cy.get("section[slotno=6]").should("contain", "new share item")
     cy.get("#script-data").then((el) => {
       cy.get("section[slotno=7] ul  li div").eq(0).trigger(
@@ -286,11 +292,11 @@ describe("newsdesk logged in", () => {
     cy.get("section[slotno=6] textarea").should("not.contain", "new share item")
   })
   it("should contain podcast title", () => {
-    cy.visit('http://localhost:3000/')
-    cy.get('#podcast_title').eq(0).should('contain', 'The Smart 7: UK')
+    cy.visit("http://localhost:3000/")
+    cy.get("#podcast_title").eq(0).should("contain", "The Smart 7: UK")
   })
   it("should contain redirect date", () => {
-    cy.visit('http://localhost:3000/#/dev/2022-10-10')
+    cy.visit("http://localhost:3000/#/dev/2022-10-10")
     cy.reload()
   })
   it("should be delete a delete test item", () => {
