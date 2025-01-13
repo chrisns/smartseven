@@ -32,23 +32,23 @@ jobs:
       - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version-file: '.nvmrc'
-      # - uses: cypress-io/github-action@a29a621b736c9a8547ba0236cc9cee1e49725bd5 # v5.6.1
-      #   id: cypress
-      #   with:
-      #     record: true
-      #     # we have already installed everything
-      #     # start: npm run firebase:emulator
-      #     wait-on: 'http://localhost:3000, http://localhost:9099, http://localhost:8082'
+      - uses: cypress-io/github-action@a29a621b736c9a8547ba0236cc9cee1e49725bd5 # v5.6.1
+        id: cypress
+        with:
+          record: true
+          # we have already installed everything
+          # start: npm run firebase:emulator
+          wait-on: 'http://localhost:3000, http://localhost:9099, http://localhost:8082'
 
-      #     # install: false
-      #     # # to run component tests we need to use "cypress run-ct"
-      #     build: npm run build
-      #     start: npm run firebase:emulator
+          # install: false
+          # # to run component tests we need to use "cypress run-ct"
+          build: npm run build
+          start: npm run firebase:emulator
 
-      #     # command: npm run test
-      #   env:
-      #     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # command: npm run test
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3
         if: failure()
