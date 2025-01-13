@@ -20,7 +20,7 @@
     "@headlessui/vue": "1.7.13",
     "@heroicons/vue": "1.0.6",
     "@tinymce/tinymce-vue": "5.1.0",
-    "@types/linkify-it": "3.0.2",
+    "@types/linkify-it": "3.0.5",
     "@vueuse/core": "9.1.1",
     "array-move": "4.0.0",
     "firebase": "10.9.0",
