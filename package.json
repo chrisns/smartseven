@@ -52,7 +52,7 @@
     "eslint-plugin-cypress": "2.13.2",
     "eslint-plugin-vue": "9.10.0",
     "firebase-tools": "13.6.0",
-    "postcss": "8.4.21",
+    "postcss": "8.4.49",
     "prettier": "2.8.7",
     "sass": "1.62.0",
     "start-server-and-test": "2.0.0",
